@@ -1,35 +1,65 @@
-# GazeGuide
+# GAZE GUIDE
+![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)
+![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
 
-## Introduction
-While gesture or speech navigation may seem like a fix, they struggle to analyze inputs. Ever noticed your voice assistant going offline when your phone loses connection? Enter Gaze Guide, a game-changer for hands-busy, offline situations.
+Banking (ATMs), airport check-in, government e-government, retail (product catalogues), healthcare (appointments), education (attendance), corporate (registration), events (information), and the list goes on all employ interactive public kiosks. Businesses are turning to kiosks to provide better customer service, yet touch-free interaction with all public gadgets has become essential to stop the spread of the common Corona virus.
 
-Get ready for an innovative project! We're building an intelligent HCI module that orchestrates 3 models in harmony. From face detection to gaze estimation to gesture control, these models work seamlessly together to enhance your interaction with technology.
+Gesture or speech navigation may appear to alleviate the aforementioned issues, but these devices lack the resources necessary to analyse these inputs. Have you ever observed that when your phone goes offline, your voice assistant—whether it's Siri or Google Assistant—gives up? As you go through inaccessible roads, the voice-activated car infotainment system gives you no response. Multiple AI models cannot run at the same time on a standard computer. 
 
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/26748554/233773804-5c9494f5-ff97-46c1-a589-48a21b4f818d.png" width ="300" height="500">
-</p>
-
-&nbsp;
+In this project, we will try to build a Human-Computer Interaction (HCI) module which intelligently orchestrates 3 concurrently-running programs, one feeding onto another. While the models for face detection, eye detection, pupil movement computation to identify movement control inputs.
 
 
-### Project veterans
-i) Srinivas  
-ii) Alex  
-iii) Vamsi  
-iv) Mohit  
-v) Nitish  
-vi) Chaitanya  
-vii) Shashank  
-viii) Bhavana  
-ix) Priyanka  
+## Project Setup and Installation
+We have used Python, OpenCV, Numpy, Pyautogui, Collections and Haar Cascade files.
 
-&nbsp;
+Note:
+We haven't used any machine learning models.
 
-### TechStacks
-i) Verilog  
-ii) FPGA (Field Programmable Gate Array)  
-iii) Digital ICs  
+You can download Python and OpenCV from official website.
+Below are codes to install dependencies.
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install NumPy.
+
+```bash
+pip install numpy
+```
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pyautogui.
+
+```bash
+pip install pyautogui
+```
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pyautogui.
+
+```bash
+pip install collection
+```
+
+## Features and Benfits
+1) Touch-free interaction: The Eye Touch: Gaze Guide aims to provide touch-free interaction with public devices, which can be especially useful in situations where touching surfaces may pose health risks, such as during a pandemic like COVID-19. This technology has the potential to enhance public health and safety standards by reducing the need for physical contact with public devices.
+
+2) Accessibility: The Eye Touch: Gaze Guide has the potential to benefit individuals with physical disabilities or limitations, such as bed-ridden or physically challenged patients in hospitals or at home. By allowing visual instructions or aid requests through gaze-based inputs, this technology can improve accessibility and ease of use for individuals who may have difficulty using traditional input methods such as touch or gestures.
+
+3) Human-computer interaction: The Eye Touch: Gaze Guide focuses on human-computer interaction (HCI) using gaze-based inputs, which can offer a new and intuitive way of interacting with computers and other devices. As this technology develops, it has the potential to open up new possibilities for how humans interact with technology, making it more natural, efficient, and convenient.
+
+4) Integration with other AI models: The Eye Touch: Gaze Guide incorporates multiple AI models, including face detection, angle of gaze estimation, and gesture control, to provide a comprehensive solution for gaze-based interaction. As AI continues to advance, there are opportunities to further improve the accuracy and effectiveness of these models, leading to more sophisticated and seamless interactions with technology.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+##Team Members:
+1) Srinivas
+2) Vamsi
+3) Alexander
+4) Nidish
+5) Bhavana
+6) Priyanka
+7) Chaitanya
+8) Shashank
+9) Mohit
 
 ##### Lets connect and have a Chat!💬
 <a href="https://www.instagram.com/electronicsclubiitg/?hl=en" ><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="45" height="45"></a>
