@@ -34,6 +34,8 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pyautog
 pip install collection
 ```
 
+![Screenshot 2023-04-22 181325](https://user-images.githubusercontent.com/69623604/233785438-cfc5a782-8bca-4ee6-a7d2-c1185c051a82.png)
+
 ## Features and Benfits
 1) Touch-free interaction: The Eye Touch: Gaze Guide aims to provide touch-free interaction with public devices, which can be especially useful in situations where touching surfaces may pose health risks, such as during a pandemic like COVID-19. This technology has the potential to enhance public health and safety standards by reducing the need for physical contact with public devices.
 
@@ -48,9 +50,10 @@ pip install collection
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
 
+
 Please make sure to update tests as appropriate.
 
-##Team Members:
+## Team Members:
 1) Srinivas
 2) Vamsi
 3) Alexander
@@ -60,6 +63,13 @@ Please make sure to update tests as appropriate.
 7) Chaitanya
 8) Shashank
 9) Mohit
+
+## Screenshots
+![WhatsApp Image 2023-04-22 at 17 49 44](https://user-images.githubusercontent.com/69623604/233785533-1714580d-6f15-4169-87f7-1594122ab9a0.jpeg)
+![WhatsApp Image 2023-04-22 at 17 49 44 (1)](https://user-images.githubusercontent.com/69623604/233785553-e7dbb691-89c4-4e85-8ce8-c68a5bce3d18.jpeg)
+
+https://user-images.githubusercontent.com/69623604/233785606-fad193f1-a519-4479-a4ca-3d298b242104.mp4
+
 
 ##### Lets connect and have a Chat!💬
 <a href="https://www.instagram.com/electronicsclubiitg/?hl=en" ><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="45" height="45"></a>
