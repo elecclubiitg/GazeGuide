@@ -8,7 +8,6 @@ def shape_to_np(shape, dtype="int"):
 		coords[i] = (shape.part(i).x, shape.part(i).y)
 	return coords
 
-
 def eye_on_mask(mask, side):
     points = [shape[i] for i in side]
     points = np.array(points, dtype=np.int32)
