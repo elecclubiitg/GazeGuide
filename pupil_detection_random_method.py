@@ -2,18 +2,9 @@
 # minimum radius(limit after which mean is to be calculated)
 # if merge happen one value preveious to that is to be used as threshold
 # 2nd detection roundness limit(if after 3(tentative) frames there is huge change in roundness of Contour)
-
-
-
-
-
-
-
 import cv2
 import numpy as np
 import random
-
-
 
 er_ker = np.ones((20,20),np.uint8)
 di_ker = np.ones((15,15),np.uint8)
@@ -37,7 +28,6 @@ def pupil(ip):
 
     return rou_ar,con_ar,radius_ar
 
-
 def contour(mat,mat2):
     final = []
     for i in range(len(mat)):
@@ -47,14 +37,12 @@ def contour(mat,mat2):
     else:
         return mat[final.index(np.max(final))]
 
-
 def process(image):
     image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     bf_img = cv2.bilateralFilter(image,25,75,75)
     erode_img = cv2.erode(bf_img,er_ker,iterations=1)
     di_img = cv2.dilate(erode_img,di_ker,iterations=1)
     return di_img
-
 
 def thres_select(image):
     im_1 = process(image)
@@ -64,7 +52,7 @@ def thres_select(image):
         rani = random.randint(a,b)
         _ , thresh = cv2.threshold(im_1,rani,255,cv2.THRESH_BINARY)
         cont , _ = cv2.findContours(thresh,cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        ,,c = pupil(cont)
+        _,_,c = pupil(cont)
         if len(c) == 0:
             a = rani
         elif np.max(c) > 50:
@@ -74,7 +62,6 @@ def thres_select(image):
         else:
             break
     return a,b
-
 
 img = cv2.imread("gaze11.jpeg")
 start,stop = thres_select(img)
@@ -89,7 +76,7 @@ for i in range(start,stop):
     cont , _ = cv2.findContours(thresh,cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     cont1 , _ = cv2.findContours(thresh1,cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     a,_,c = pupil(cont)
-    ,,c1 = pupil(cont1)
+    _,_,c1 = pupil(cont1)
     a = np.array(a)
     if len(a)!=0 and len(c1)!=0:
         if np.max(c1) - np.max(c) >10:   # checking merger
@@ -110,21 +97,12 @@ for i in range(start,stop):
             cv2.drawContours(img, cont, contour(mat,c), (0,255,0), 3)
             cv2.imshow("frame",img)
             cv2.waitKey(0)
-            break    
-
-    
-
-
-
-    
+            break
 
 # print(mat)
 # cv2.drawContours(img, cont, contour(mat,c), (0,255,0), 3)
 # cv2.imshow("frame",img)
 # cv2.waitKey(0)
-
-
-
 # img = cv2.imread("gaze16.jpeg",0)
 # img = cv2.convertScaleAbs(img, 0.2)
 # bf_img = cv2.bilateralFilter(img,25,75,75)
