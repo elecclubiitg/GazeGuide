@@ -57,12 +57,12 @@ Please make sure to update tests as appropriate.
 1) Srinivas
 2) Vamsi
 3) Alexander
-4) Nidish
+4) Nitish
 5) Bhavana
 6) Priyanka
 7) Chaitanya
 8) Shashank
-9) Mohit
+9) Mohith
 
 ## Screenshots
 ![WhatsApp Image 2023-04-22 at 17 49 44](https://user-images.githubusercontent.com/69623604/233785533-1714580d-6f15-4169-87f7-1594122ab9a0.jpeg)

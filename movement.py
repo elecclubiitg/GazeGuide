@@ -4,26 +4,22 @@ import pyautogui as p
 import collections
 
 p.FAILSAFE = False
-
+# Importing HaarCascades
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + 'haarcascade_eye.xml')
+
 screen_w,screen_h = p.size()
+
 buffer_size = 10
 position_buffer = collections.deque(maxlen=buffer_size)
-
 buffer_size2 = 10
 cab_buffer = collections.deque(maxlen=buffer_size2)
-screen_w,screen_h = p.size()
+
 # initialize video capture device
 cap = cv2.VideoCapture(0)
 img  = np.zeros((screen_h,screen_w,3),np.uint8)
-# cab_x11= np.full(10000, screen_h)
-# cab_y11=np.full(10000, screen_w)
-# cab_x12=np.full(10000, 0)
-# cab_y12=np.full(10000, 0)
-# i=0
 c=0
 color_list = [
     (0,255,0),(0,235,0),(0,215,0),(0,195,0),(0,175,0),(0,155,0),(0,135,0),(0,115,0),(0,95,0),(0,75,0)
@@ -39,7 +35,6 @@ avg_x,avg_y = 0,0
 
 # load the Homography transformation matrix calculated during calibration
 H = np.load('H_matrix2.npy')
-
 
 # define the size of the screen
 SCREEN_SIZE = (screen_w, screen_h)
@@ -61,7 +56,6 @@ while True:
         row0, col0, _ = frame.shape
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-        
            
         if (len(faces) == 0):
             cv2.imshow('frame', frame)
@@ -92,17 +86,16 @@ while True:
                         frame1 = frame[faces[0][1]:faces[0][1]+faces[0]
                                     [3], faces[0][0]:faces[0][0]+faces[0][2]]
                         eyes[0][3],eyes[0][2]=int(eyes[0][3]/3)*3,int(eyes[0][2]/3)*3
-                        eye_orig_image = frame1[eyes[0][1]+int(eyes[0][3]/4):(
+                        roi = frame1[eyes[0][1]+int(eyes[0][3]/4):(
                             eyes[0][1]+int(3*eyes[0][3]/4)), eyes[0][0]:(eyes[0][0]+eyes[0][2])]
-                        if eye_orig_image.shape[0]==0: 
+                        if roi.shape[0]==0: 
                             cv2.imshow('frame', frame)
                             key = cv2.waitKey(1)
                             if key == 27:
                                 break
                             continue
-                        # cv2.imshow('iris', eye_orig_image)
+                        # cv2.imshow('iris', roi)
                 
-                        roi = eye_orig_image
                         rows, cols, _ = roi.shape
                         row1, col1, _ = frame1.shape
                         # if(len(roi)==0): break
@@ -112,14 +105,13 @@ while True:
                         # kernel=np.ones((5,5),np.uint8)
                         # gray_roi=cv2.dilate(gray_roi,kernel,iterations=2) 
                         # gray_roi=cv2.erode(gray_roi,kernel,iterations=2) 
+
                         value = 10
                         t_area =roi.shape[0] * roi.shape[1]
                         c+=1 
                         if(c>10):
                          img.fill(0)
                          c=0
-                        # contour, _ = cv2.findContours(
-                        #         threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
                         while (value < 100):
 
@@ -184,24 +176,8 @@ while True:
                         central_gaze = gaze_points[closest_index]
 
                         cab_x1,cab_y1 = central_gaze[0],central_gaze[1]
-                        # draw a smiley face at the estimated gazing point
-                        # cabi_x = max(min(cab_x, REGION_RIGHT), REGION_LEFT)
-                        # cabi_y = max(min(cab_y, REGION_BOTTOM), REGION_TOP)  
-                        # gaze_point = (int(cabi_x),int(cabi_y))
-                        top_x = int(cab_x1-(50*0.707))
-                        bot_x = int(cab_x1+(50*0.707))
-                        top_y = int(cab_y1-(50*0.707))
-                        bot_y = int(cab_y1+(50*0.707))
 
-                        # if abs(x_max-x_min)>100 or abs(y_min-y_max)>100:
-                        #     cv2.rectangle(img,(top_x,top_y),(bot_x,bot_y),(0,0,255),2)
-                        # else :  
-                        #     cv2.rectangle(img,(int(x_min),int(y_min)),(int(x_max),int(y_max)),(0,0,255),thickness=2)
-
-                        cv2.circle(img,(int(cab_x1),int(cab_y1)),100,color_list[9-c],-1)
-                        # if(abs(x_max-x_min)>100)and(abs(y_max-y_min)>100):
-                        #      img.fill(0) 
-                        
+                        cv2.circle(img,(int(cab_x1),int(cab_y1)),100,color_list[9-c],-1)                        
 
                         if(-32765<=cab_x1<=32765) and (-32765<=cab_y1<=32765): #limits are (-2^15-2, 2^15-1) and 2^15 = 32768
                         # struct.error: short format requires (-0x7fff - 1) <= number <= 0x7fff 
